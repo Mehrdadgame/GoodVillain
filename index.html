@@ -653,208 +653,217 @@
 
     /* Documentation Section */
     .documentation {
-      padding: 7rem 0;
-      background: linear-gradient(to bottom, rgba(19, 15, 64, 0.9), var(--background));
-      position: relative;
-    }
-    
+    padding: 5rem 0;
+    background-color: var(--background);
+  }
+  
+  .doc-container {
+    display: flex;
+    background: var(--card);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(130, 71, 229, 0.3);
+    margin-top: 2rem;
+  }
+  
+  .doc-navigation {
+    width: 250px;
+    background: rgba(130, 71, 229, 0.1);
+    padding: 2rem 0;
+    border-right: 1px solid rgba(130, 71, 229, 0.3);
+  }
+  
+  .doc-nav-item {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text);
+    font-weight: 500;
+  }
+  
+  .doc-nav-item:hover, .doc-nav-item.active {
+    background: rgba(130, 71, 229, 0.2);
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .doc-content {
+    flex: 1;
+    padding: 2rem;
+    max-height: 800px;
+    overflow-y: auto;
+  }
+  
+  .doc-section {
+    display: none;
+  }
+  
+  .doc-section.active {
+    display: block;
+  }
+  
+  .doc-section h3 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+  }
+  
+  .doc-section h4 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: var(--primary);
+  }
+  
+  .doc-section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  
+  .doc-section ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .doc-section li {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+  
+  /* Character Gallery Styles */
+  .character-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .character-card {
+    background: rgba(130, 71, 229, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(130, 71, 229, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(130, 71, 229, 0.2);
+    border-color: var(--primary);
+  }
+  
+  .character-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .character-info {
+    padding: 1.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .character-info h5 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: var(--light);
+  }
+  
+  .character-info p {
+    font-size: 0.9rem;
+    color: var(--secondary);
+    margin-bottom: 0;
+  }
+  
+  /* Story Section Styles */
+  .story-section {
+    background: rgba(130, 71, 229, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--primary);
+  }
+  
+  .story-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .story-header-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(130, 71, 229, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: var(--primary);
+  }
+  
+  .story-paragraph {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: var(--text);
+    font-style: italic;
+  }
+  
+  .story-highlight {
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .story-divider {
+    height: 1px;
+    background: linear-gradient(to right, rgba(130, 71, 229, 0.1), rgba(130, 71, 229, 0.5), rgba(130, 71, 229, 0.1));
+    margin: 1.5rem 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
     .doc-container {
-      background: var(--card);
-      border-radius: 20px;
-      border: 1px solid rgba(130, 71, 229, 0.3);
-      overflow: hidden;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
+      flex-direction: column;
     }
     
     .doc-navigation {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid rgba(130, 71, 229, 0.3);
+      padding: 1rem 0;
       display: flex;
-      flex-wrap: wrap;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(12, 8, 32, 0.5);
+      overflow-x: auto;
     }
     
     .doc-nav-item {
-      padding: 1.2rem 1.5rem;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.7);
-      border-bottom: 3px solid transparent;
+      padding: 0.8rem 1.2rem;
+      white-space: nowrap;
     }
-    
-    .doc-nav-item.active {
-      background: rgba(130, 71, 229, 0.1);
-      color: var(--light);
-      border-bottom: 3px solid var(--secondary);
-    }
-    
-    .doc-nav-item:hover:not(.active) {
-      color: var(--light);
-      background: rgba(255, 255, 255, 0.05);
-    }
-    
-    .doc-content {
-      padding: 2.5rem;
-      max-height: 600px;
-      overflow-y: auto;
-    }
-    
-    .doc-section {
-      display: none;
-    }
-    
-    .doc-section.active {
-      display: block;
-      animation: fadeIn 0.5s ease;
-    }
-    
-    .doc-section h3 {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
-      color: var(--light);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 0.8rem;
-    }
-    
-    .doc-section h4 {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 1.4rem;
-      margin: 2rem 0 1rem;
-      color: var(--secondary);
-    }
-    
-    .doc-section p {
-      margin-bottom: 1.2rem;
-    }
-    
-    .doc-image {
-      width: 100%;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    .doc-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-    }
-    
-    .doc-table th {
-      background: rgba(130, 71, 229, 0.2);
-      text-align: left;
-      padding: 0.8rem;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .doc-table td {
-      padding: 0.8rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .doc-table tr:nth-child(even) {
-      background: rgba(255, 255, 255, 0.03);
-    }
-    
-    /* Character gallery */
+  }
+  
+  @media (max-width: 768px) {
     .character-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
-    
-    .character-card {
-      background: rgba(30, 20, 60, 0.5);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(130, 71, 229, 0.3);
-    }
-    
-    .character-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(130, 71, 229, 0.3);
-    }
-    
-    .character-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    
-    .character-info {
-      padding: 1rem;
-      text-align: center;
-    }
-    
-    .character-info h5 {
-      font-family: 'Exo 2', sans-serif;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: var(--light);
-    }
-    
-    .character-info p {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    
-    /* Story section */
-    .story-section {
-      margin: 2rem 0;
+  }
+  
+  @media (max-width: 576px) {
+    .doc-content {
       padding: 1.5rem;
-      background: rgba(130, 71, 229, 0.1);
-      border-radius: 10px;
-      border-left: 3px solid var(--primary);
     }
     
-    .story-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1.5rem;
+    .character-gallery {
+      grid-template-columns: 1fr;
     }
-    
-    .story-header-icon {
-      width: 40px;
-      height: 40px;
-      margin-right: 1rem;
-      background: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .story-header h4 {
-      margin: 0;
-      color: var(--light);
-    }
-    
-    .story-paragraph {
-      margin-bottom: 1.2rem;
-      line-height: 1.7;
-    }
-    
-    .story-paragraph:last-child {
-      margin-bottom: 0;
-    }
-    
-    .story-highlight {
-      color: var(--secondary);
-      font-weight: 600;
-    }
-    
-    .story-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--primary), transparent);
-      margin: 1.5rem 0;
-    }
-
+  }
     /* Team Section */
     .team {
       padding: 7rem 0;
@@ -890,7 +899,6 @@
       width: 100%;
       height: 280px;
       object-fit: cover;
-      background-color: rgba(130, 71, 229, 0.2);
     }
     
     .team-info {
@@ -1327,325 +1335,323 @@
       </div>
     </section>
 
-    <!-- Documentation Section -->
-    <section class="documentation" id="documentation">
-      <div class="container">
-        <div class="section-header">
-          <h2>Documentation</h2>
-          <p>Everything you need to know about CryptoClans</p>
+  <!-- Documentation Section -->
+<section class="documentation" id="documentation">
+  <div class="container">
+    <div class="section-header">
+      <h2>Documentation</h2>
+      <p>Everything you need to know about CryptoClans</p>
+    </div>
+    <div class="doc-container">
+      <div class="doc-navigation">
+        <div class="doc-nav-item active" data-tab="overview">Overview</div>
+        <div class="doc-nav-item" data-tab="economy">Economy</div>
+        <div class="doc-nav-item" data-tab="tribes">Tribes</div>
+        <div class="doc-nav-item" data-tab="nft">NFT System</div>
+        <div class="doc-nav-item" data-tab="combat">Combat</div>
+        <div class="doc-nav-item" data-tab="story">Game Story</div>
+        <div class="doc-nav-item" data-tab="roadmap">Roadmap</div>
+      </div>
+      <div class="doc-content">
+        <!-- Overview Section -->
+        <div class="doc-section active" id="doc-overview">
+          <h3>Game Overview</h3>
+          <p>CryptoClans is a strategic blockchain game where players build tribes, mint their own tokens, and conquer territories using NFT warriors in a dynamic player-driven economy.</p>
+          
+          <h4>Introduction</h4>
+          <p>CryptoClans is a strategic blockchain-based game inspired by popular games like Clash of Clans, providing an innovative experience in the GameFi space. Players can establish their own tribes, upgrade their soldiers and leaders as NFTs, and create their own ecosystem using custom meme coins.</p>
+          
+          <h4>Key Components</h4>
+          <ul>
+            <li><strong>Platform:</strong> Android, iOS, Web Browser</li>
+            <li><strong>Target Market:</strong> Strategy gamers (16+), cryptocurrency enthusiasts, Web3 investors</li>
+            <li><strong>Blockchain Network:</strong> Polygon</li>
+          </ul>
+          
+          <h4>Epic Characters</h4>
+          <div class="character-gallery">
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Celestial+Guardian" alt="Celestial Guardian" class="character-image">
+              <div class="character-info">
+                <h5>Celestial Guardian</h5>
+                <p>Protector of the Balance</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://raw.githubusercontent.com/Mehrdadgame/GoodVillain/refs/heads/main/Dragon%20Rider.jpeg" alt="Dragon Knight" class="character-image">
+              <div class="character-info">
+                <h5>Dragon Knight</h5>
+                <p>Master of Beasts</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Ancient+Mage" alt="Ancient Mage" class="character-image">
+              <div class="character-info">
+                <h5>Ancient Mage</h5>
+                <p>Keeper of Forgotten Magic</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="doc-container">
-          <div class="doc-navigation">
-            <div class="doc-nav-item active" data-tab="overview">Overview</div>
-            <div class="doc-nav-item" data-tab="economy">Economy</div>
-            <div class="doc-nav-item" data-tab="tribes">Tribes</div>
-            <div class="doc-nav-item" data-tab="nft">NFT System</div>
-            <div class="doc-nav-item" data-tab="combat">Combat</div>
-            <div class="doc-nav-item" data-tab="story">Game Story</div>
-            <div class="doc-nav-item" data-tab="roadmap">Roadmap</div>
+        
+        <!-- Economy Section -->
+        <div class="doc-section" id="doc-economy">
+          <h3>Game Economy</h3>
+          <p>The CryptoClans economy consists of four distinct layers that create a comprehensive economic system:</p>
+          
+          <h4>Base Resources</h4>
+          <p>Basic resources including gold, wood, diamonds, and elixir are used for building and upgrading structures, training soldiers, and advancing your tribe.</p>
+          
+          <h4>POL (Polygon Token)</h4>
+          <p>The main ecosystem currency that connects the game to the Polygon network. It can be used to purchase diamonds, special packages, quickly construct buildings, create tribe tokens, and buy rare NFTs in the marketplace.</p>
+          
+          <h4>Tribe Tokens (Meme Coins)</h4>
+          <p>Each tribe can create its own token with value determined by the tribe's power, activity, and popularity. Tokens can be used for exclusive tribe items, enhancing defensive features, payments to members, and trading with other tribes.</p>
+          
+          <div class="story-section">
+            <div class="story-header">
+              <div class="story-header-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h4>MimeCoin Creation</h4>
+            </div>
+            <p class="story-paragraph">When Kian established his tribe in the protected valley, he discovered that POL was not merely a source of power — it could create an entirely new economy. Using ancient knowledge found in the ruins of a forgotten temple, he minted his tribe's first token — "KianCoin" — that his tribe members could use for internal trade.</p>
+            <p class="story-paragraph">As Kian's tribe grew rapidly, his warriors were victorious in battle, his builders constructed magnificent structures, and his scholars discovered new technologies. Each victory increased the value of KianCoin, and each new tribe member strengthened its economy.</p>
           </div>
-          <div class="doc-content">
-            <!-- Overview Section -->
-            <div class="doc-section active" id="doc-overview">
-              <h3>Game Overview</h3>
-              <p>CryptoClans is a strategic blockchain game where players build tribes, mint their own tokens, and conquer territories using NFT warriors in a dynamic player-driven economy.</p>
-              
-              <h4>Introduction</h4>
-              <p>CryptoClans is a strategic blockchain-based game inspired by popular games like Clash of Clans, providing an innovative experience in the GameFi space. Players can establish their own tribes, upgrade their soldiers and leaders as NFTs, and create their own ecosystem using custom meme coins.</p>
-              
-              <h4>Key Components</h4>
-              <ul>
-                <li><strong>Platform:</strong> Android, iOS, Web Browser</li>
-                <li><strong>Target Market:</strong> Strategy gamers (16+), cryptocurrency enthusiasts, Web3 investors</li>
-                <li><strong>Blockchain Network:</strong> Polygon</li>
-              </ul>
-              
-              <h4>Epic Characters</h4>
-              <div class="character-gallery">
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/celestial-guardian.jpg" alt="Celestial Guardian" class="character-image">
-                  <div class="character-info">
-                    <h5>Celestial Guardian</h5>
-                    <p>Protector of the Balance</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://raw.githubusercontent.com/Mehrdadgame/GoodVillain/refs/heads/main/Dragon%20Rider.jpeg" alt="Dragon Knight" class="character-image">
-                  <div class="character-info">
-                    <h5>Dragon Knight</h5>
-                    <p>Master of Beasts</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/ancient-mage.jpg" alt="Ancient Mage" class="character-image">
-                  <div class="character-info">
-                    <h5>Ancient Mage</h5>
-                    <p>Keeper of Forgotten Magic</p>
-                  </div>
-                </div>
+          
+          <h4>NFT Assets</h4>
+          <p>Including soldiers, leaders, special lands, and rare items with real market value. NFTs can be upgraded, traded, and used in battles to increase your tribe's strength.</p>
+          
+          <div class="character-gallery">
+            <div class="character-card">
+              <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Warrior%20King%20(Leader).jpeg?raw=true" alt="Warrior King" class="character-image">
+              <div class="character-info">
+                <h5>Warrior King</h5>
+                <p>Legendary NFT Leader</p>
               </div>
             </div>
-            
-            <!-- Economy Section -->
-            <div class="doc-section" id="doc-economy">
-              <h3>Game Economy</h3>
-              <p>The CryptoClans economy consists of four distinct layers that create a comprehensive economic system:</p>
-              
-              <h4>Base Resources</h4>
-              <p>Basic resources including gold, wood, diamonds, and elixir are used for building and upgrading structures, training soldiers, and advancing your tribe.</p>
-              
-              <h4>POL (Polygon Token)</h4>
-              <p>The main ecosystem currency that connects the game to the Polygon network. It can be used to purchase diamonds, special packages, quickly construct buildings, create tribe tokens, and buy rare NFTs in the marketplace.</p>
-              
-              <h4>Tribe Tokens (Meme Coins)</h4>
-              <p>Each tribe can create its own token with value determined by the tribe's power, activity, and popularity. Tokens can be used for exclusive tribe items, enhancing defensive features, payments to members, and trading with other tribes.</p>
-              
-              <div class="story-section">
-                <div class="story-header">
-                  <div class="story-header-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                  </div>
-                  <h4>MimeCoin Creation</h4>
-                </div>
-                <p class="story-paragraph">When Kian established his tribe in the protected valley, he discovered that POL was not merely a source of power — it could create an entirely new economy. Using ancient knowledge found in the ruins of a forgotten temple, he minted his tribe's first token — "KianCoin" — that his tribe members could use for internal trade.</p>
-                <p class="story-paragraph">As Kian's tribe grew rapidly, his warriors were victorious in battle, his builders constructed magnificent structures, and his scholars discovered new technologies. Each victory increased the value of KianCoin, and each new tribe member strengthened its economy.</p>
+            <div class="character-card">
+              <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Sacred%20Fire.png?raw=true" alt="Sacred Fire Mage" class="character-image">
+              <div class="character-info">
+                <h5>Sacred Fire Mage</h5>
+                <p>Rare NFT Soldier</p>
               </div>
-              
-              <h4>NFT Assets</h4>
-              <p>Including soldiers, leaders, special lands, and rare items with real market value. NFTs can be upgraded, traded, and used in battles to increase your tribe's strength.</p>
-              
-              <div class="character-gallery">
-                <div class="character-card">
-                  <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Warrior%20King%20(Leader).jpeg?raw=true" alt="Warrior King" class="character-image">
-                  <div class="character-info">
-                    <h5>Warrior King</h5>
-                    <p>Legendary NFT Leader</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Sacred%20Fire.png?raw=true" alt="Sacred Fire Mage" class="character-image">
-                  <div class="character-info">
-                    <h5>Sacred Fire Mage</h5>
-                    <p>Rare NFT Soldier</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Tribes Section -->
-            <div class="doc-section" id="doc-tribes">
-              <h3>Tribe System</h3>
-              <p>The tribe system is at the core of CryptoClans gameplay, allowing players to create and manage their own communities:</p>
-              
-              <h4>Creating a Tribe</h4>
-              <p>To establish a new tribe, players need to reach level 5, have at least 5 POL (or equivalent), and complete basic training missions. The creation process involves selecting a name, emblem, tribe specialty (Warrior, Merchant, or Scientist), and setting up initial configurations.</p>
-              
-              <h4>Member Management</h4>
-              <p>Tribes can recruit members through various methods including the tribe search system, direct invitations, advertising, and recruitment events. Members progress through ranks from newcomers to elders, deputies, and leaders, with increasing privileges and responsibilities.</p>
-              
-              <div class="character-gallery">
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/tribal-king.jpg" alt="Tribal King" class="character-image">
-                  <div class="character-info">
-                    <h5>Tribal King</h5>
-                    <p>Supreme Leader</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/tribal-queen.jpg" alt="Tribal Queen" class="character-image">
-                  <div class="character-info">
-                    <h5>Tribal Queen</h5>
-                    <p>Strategic Leader</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/royal-guardian.jpg" alt="Royal Guardian" class="character-image">
-                  <div class="character-info">
-                    <h5>Royal Guardian</h5>
-                    <p>Elite Protector</p>
-                  </div>
-                </div>
-              </div>
-              
-              <h4>Tribe Advancement</h4>
-              <p>Tribes advance through 20 levels, with significant milestones at levels 5 (tribe token creation), 10 (tribal alliance), 15 (special buildings), and 20 (endgame content). Advancement is achieved through increasing active members, upgrading key buildings, winning battles, and completing tribal challenges.</p>
-            </div>
-            
-            <!-- NFT System Section -->
-            <div class="doc-section" id="doc-nft">
-              <h3>NFT System</h3>
-              <p>NFTs in CryptoClans represent unique digital assets with real-world value and in-game utility:</p>
-              
-              <h4>Soldier NFTs</h4>
-              <p>Players can transform regular soldiers into NFTs with unique attributes, abilities, and value. Soldiers come in three rarity levels: Common (80%), Rare (15%), and Legendary (5%). Each NFT has 5 unique characteristics that impact their performance in battle.</p>
-              
-              <div class="character-gallery">
-                <div class="character-card">
-                  <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Swordsman.jpeg?raw=true" alt="Master Bowman" class="character-image">
-                  <div class="character-info">
-                    <h5>Master Bowman</h5>
-                    <p>Elite Archer NFT</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/dragon-knight.jpg" alt="Dragon Knight" class="character-image">
-                  <div class="character-info">
-                    <h5>Dragon Knight</h5>
-                    <p>Legendary Warrior NFT</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/mountain-giant.jpg" alt="Mountain Giant" class="character-image">
-                  <div class="character-info">
-                    <h5>Mountain Giant</h5>
-                    <p>Heavy Unit NFT</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/night-stalker.jpg" alt="Night Stalker" class="character-image">
-                  <div class="character-info">
-                    <h5>Night Stalker</h5>
-                    <p>Stealth NFT</p>
-                  </div>
-                </div>
-              </div>
-              
-              <h4>Leader NFTs</h4>
-              <p>Leaders (Kings and Queens) are the most powerful characters in the game. They come in five classes (Warrior, Mage, Guide, Commander, Hunter) with unique abilities and can be equipped with gear to enhance their attributes.</p>
-              
-              <h4>NFT Marketplace</h4>
-              <p>The in-game marketplace allows trading NFTs using POL or tribe tokens. A 2.5% transaction fee is applied (1% to developers, 1% to game treasury, 0.5% is burned). The marketplace includes direct sales, auctions, and a rental system.</p>
-            </div>
-            
-            <!-- Combat Section -->
-            <div class="doc-section" id="doc-combat">
-              <h3>Combat System</h3>
-              <p>The battle system in CryptoClans combines direct player strategy with advanced AI:</p>
-              
-              <h4>Attack Types</h4>
-              <p>Players can engage in different types of attacks: resource raids, trophy attacks to gain war points, rival tribe attacks to steal tokens, and territory conquest to expand land control.</p>
-              
-              <h4>Battle Mechanics</h4>
-              <p>Battles involve strategic unit deployment, leader ability usage, spell casting, and wave management. Success is determined by destroying enough buildings (at least 50%) within the time limit (3 minutes).</p>
-              
-              <div class="character-gallery">
-                <div class="character-card">
-                  <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Legendary%20Archer.jpeg?raw=true" alt="Legendary Archer" class="character-image">
-                  <div class="character-info">
-                    <h5>Legendary Archer</h5>
-                    <p>Long-range Specialist</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Immortal%20Guardian.jpeg?raw=true" alt="Immortal Guardian" class="character-image">
-                  <div class="character-info">
-                    <h5>Immortal Guardian</h5>
-                    <p>Defensive Powerhouse</p>
-                  </div>
-                </div>
-              </div>
-              
-              <h4>Defense System</h4>
-              <p>Players can design their base layout, strategically place defensive buildings, set trap placements, and use defensive buffs from leaders. Successful defense yields rewards and protects resources.</p>
-              
-              <h4>Tribal Wars</h4>
-              <p>Organized wars between tribes or alliances follow a preparation period (24-48 hours) and a battle phase (24-48 hours) with members having limited attacks. Victory is determined by total stars earned, with rewards distributed among participants.</p>
-            </div>
-            
-            <!-- Game Story Section -->
-            <div class="doc-section" id="doc-story">
-              <h3>The Epic Tale of CryptoClans</h3>
-              
-              <h4>The Conflict of Light and Shadow</h4>
-              <div class="story-section">
-                <p class="story-paragraph">In an age long forgotten, when the boundary between the mortal realm and the realm of legends was thin, a great cataclysm shook the world. The heavens tore open, and from this celestial wound fell shards of an ancient power — glowing crystals of extraordinary might that the ancients called "Farr" (Divine Glory). In modern times, these crystals are known as "POL."</p>
-                <p class="story-paragraph">These POL crystals, infused with the essence of the stars themselves, possess the power to transform the land, grant extraordinary abilities to their wielders, and even bind the fabric of reality itself. Where the crystals touched the earth, life flourished, magic awakened, and civilizations rose from the ashes of the old world.</p>
-                <div class="story-divider"></div>
-                <p class="story-paragraph">Two great forces emerged to vie for control of these powerful artifacts. In the lands of light to the west, followers of the path of wisdom and order sought to use the crystals to restore knowledge and rebuild civilization. In the shadow lands to the east, those who followed the path of power and chaos desired to harness the crystals for dominion and conquest.</p>
-              </div>
-              
-              <h4>The Birth of Tribes</h4>
-              <div class="story-section">
-                <p class="story-paragraph">From this conflict arose independent tribes, each led by noble kings and queens with their own visions for the future of the world. Some pledged allegiance to the light, others to shadow, while many chose their own path between these extremes.</p>
-                <p class="story-paragraph">The young warrior <span class="story-highlight">Kian</span>, descended from an ancient line of heroes, discovered a POL crystal that had been passed down through generations of his family. In his dreams, he was visited by a radiant figure who spoke of a destiny to restore balance to a fractured world. Guided by this vision, Kian established his own tribe in a small valley protected by twin mountains.</p>
-                <p class="story-paragraph">At first, his domain consisted of only a few wooden shelters and a small gold mine, but his ambitions reached far beyond these humble beginnings.</p>
-              </div>
-              
-              <div class="character-gallery">
-                <div class="character-card">
-                  <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Winged%20Knight.jpeg?raw=true" alt="Kian" class="character-image">
-                  <div class="character-info">
-                    <h5>Kian</h5>
-                    <p>Founder of the First Tribe</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/azura.jpg" alt="Azura" class="character-image">
-                  <div class="character-info">
-                    <h5>Azura</h5>
-                    <p>Shadow Realm Leader</p>
-                  </div>
-                </div>
-                <div class="character-card">
-                  <img src="https://your-image-url-here.com/simorgh.jpg" alt="Simorgh" class="character-image">
-                  <div class="character-info">
-                    <h5>Simorgh</h5>
-                    <p>Guardian of Balance</p>
-                  </div>
-                </div>
-              </div>
-              
-              <h4>The Rise of Shadow</h4>
-              <div class="story-section">
-                <p class="story-paragraph">On the eastern horizon, a powerful tribe called "Shadowrealm" led by the cunning <span class="story-highlight">Azura</span>, watched Kian's tribe's success with envy. Drawing power from the shadow side of the POL crystals, Azura had mastered dark arts and created her own token — "ShadowCoin."</p>
-                <p class="story-paragraph">Azura, who considered herself a master strategist, had built a formidable force through intimidation and conquest rather than alliance and growth. She now planned to dominate more POL resources to fuel her dark powers.</p>
-                <p class="story-paragraph">On a moonlit night, scouts from Kian's tribe reported that Azura's forces had been seen at the eastern borders. Kian knew his great test had come. He summoned his tribal council and held the first tribal DAO vote to decide their war strategy.</p>
-                <p class="story-paragraph">The countdown to the great battle began. The fate of two tribes, two economies, and two tokens hung in the balance. Could the collective power of a tribal DAO overcome the centralized strategy of a cunning leader?</p>
-              </div>
-              
-              <h4>The Seven Trials</h4>
-              <div class="story-section">
-                <p class="story-paragraph">Before facing Azura directly, Kian would need to overcome seven great trials that would test his courage, wisdom, and leadership. Each trial would take him to a different part of the world, where he would face mythical beasts, solve ancient riddles, and prove his worthiness to wield the full power of the POL crystals.</p>
-                <p class="story-paragraph">The trials were set by the <span class="story-highlight">Guardian of Balance</span>, a mysterious entity who appeared as a magnificent bird with feathers of fire and gold, reminiscent of the legendary Simorgh. The Guardian sought to ensure that only those with noble intentions could harness the true power of POL.</p>
-                <p class="story-paragraph">As Kian embarked on his journey through the seven trials, other tribe leaders also sought to prove themselves worthy. Some would become allies, others rivals, and a few would fall to the temptations of shadow.</p>
-                <p class="story-paragraph">With each trial completed, Kian's tribe would gain new powers, technologies, and resources. The warriors of his tribe would grow stronger, their buildings more resilient, and their magic more potent.</p>
-                <p class="story-paragraph">Meanwhile, Azura pursued her own path to power, seeking shortcuts and forbidden knowledge that promised great power at terrible costs. Her shadow forces grew, fueled by corrupted POL crystals that spread darkness wherever they were used.</p>
-                <p class="story-paragraph">The stage was set for an epic conflict between light and shadow, order and chaos, cooperation and domination. This was just the beginning of the CryptoClans saga...</p>
-              </div>
-            </div>
-            
-            <!-- Roadmap Section -->
-            <div class="doc-section" id="doc-roadmap">
-              <h3>Development Roadmap</h3>
-              <p>Our detailed development plan for CryptoClans:</p>
-              
-              <h4>Short-term (3-6 months)</h4>
-              <ul>
-                <li><strong>Phase 1:</strong> Initial launch with basic features, tribe system up to level 10, basic NFTs, and core battle system</li>
-                <li><strong>Phase 2:</strong> Introduction of tribe tokens, internal NFT marketplace, dynamic reward system, and weekly/monthly events</li>
-              </ul>
-              
-              <h4>Mid-term (6-12 months)</h4>
-              <ul>
-                <li><strong>Phase 3:</strong> Tribal alliance system, alliance wars, super tokens, shared territory system</li>
-                <li><strong>Phase 4:</strong> Increase tribe level cap to 15, legendary territories, NFT breeding system, deeper tribe storylines</li>
-              </ul>
-              
-              <h4>Long-term (12+ months)</h4>
-              <ul>
-                <li><strong>Phase 5:</strong> Integration with other blockchain projects, cross-platform events, external use of tribe tokens, API for third-party developers</li>
-                <li><strong>Phase 6:</strong> Increase tribe level cap to 20, dynamic world system, global tournaments with major prizes, long-term economic sustainability plan</li>
-              </ul>
             </div>
           </div>
+        </div>
+        
+        <!-- Tribes Section -->
+        <div class="doc-section" id="doc-tribes">
+          <h3>Tribe System</h3>
+          <p>The tribe system is at the core of CryptoClans gameplay, allowing players to create and manage their own communities:</p>
+          
+          <h4>Creating a Tribe</h4>
+          <p>To establish a new tribe, players need to reach level 5, have at least 5 POL (or equivalent), and complete basic training missions. The creation process involves selecting a name, emblem, tribe specialty (Warrior, Merchant, or Scientist), and setting up initial configurations.</p>
+          
+          <h4>Member Management</h4>
+          <p>Tribes can recruit members through various methods including the tribe search system, direct invitations, advertising, and recruitment events. Members progress through ranks from newcomers to elders, deputies, and leaders, with increasing privileges and responsibilities.</p>
+          
+          <div class="character-gallery">
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Tribal+King" alt="Tribal King" class="character-image">
+              <div class="character-info">
+                <h5>Tribal King</h5>
+                <p>Supreme Leader</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Tribal+Queen" alt="Tribal Queen" class="character-image">
+              <div class="character-info">
+                <h5>Tribal Queen</h5>
+                <p>Strategic Leader</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Royal+Guardian" alt="Royal Guardian" class="character-image">
+              <div class="character-info">
+                <h5>Royal Guardian</h5>
+                <p>Elite Protector</p>
+              </div>
+            </div>
+          </div>
+          
+          <h4>Tribe Advancement</h4>
+          <p>Tribes advance through 20 levels, with significant milestones at levels 5 (tribe token creation), 10 (tribal alliance), 15 (special buildings), and 20 (endgame content). Advancement is achieved through increasing active members, upgrading key buildings, winning battles, and completing tribal challenges.</p>
+        </div>
+        
+        <!-- NFT System Section -->
+        <div class="doc-section" id="doc-nft">
+          <h3>NFT System</h3>
+          <p>NFTs in CryptoClans represent unique digital assets with real-world value and in-game utility:</p>
+          
+          <h4>Soldier NFTs</h4>
+          <p>Players can transform regular soldiers into NFTs with unique attributes, abilities, and value. Soldiers come in three rarity levels: Common (80%), Rare (15%), and Legendary (5%). Each NFT has 5 unique characteristics that impact their performance in battle.</p>
+          
+          <div class="character-gallery">
+            <div class="character-card">
+              <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Swordsman.jpeg?raw=true" alt="Master Bowman" class="character-image">
+              <div class="character-info">
+                <h5>Master Bowman</h5>
+                <p>Elite Archer NFT</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Dragon+Knight" alt="Dragon Knight" class="character-image">
+              <div class="character-info">
+                <h5>Dragon Knight</h5>
+                <p>Legendary Warrior NFT</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Mountain+Giant" alt="Mountain Giant" class="character-image">
+              <div class="character-info">
+                <h5>Mountain Giant</h5>
+                <p>Heavy Unit NFT</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Night+Stalker" alt="Night Stalker" class="character-image">
+              <div class="character-info">
+                <h5>Night Stalker</h5>
+                <p>Stealth NFT</p>
+              </div>
+            </div>
+          </div>
+          
+          <h4>Leader NFTs</h4>
+          <p>Leaders (Kings and Queens) are the most powerful characters in the game. They come in five classes (Warrior, Mage, Guide, Commander, Hunter) with unique abilities and can be equipped with gear to enhance their attributes.</p>
+          
+          <h4>NFT Marketplace</h4>
+          <p>The in-game marketplace allows trading NFTs using POL or tribe tokens. A 2.5% transaction fee is applied (1% to developers, 1% to game treasury, 0.5% is burned). The marketplace includes direct sales, auctions, and a rental system.</p>
+        </div>
+        
+        <!-- Combat Section -->
+        <div class="doc-section" id="doc-combat">
+          <h3>Combat System</h3>
+          <p>The battle system in CryptoClans combines direct player strategy with advanced AI:</p>
+          
+          <h4>Attack Types</h4>
+          <p>Players can engage in different types of attacks: resource raids, trophy attacks to gain war points, rival tribe attacks to steal tokens, and territory conquest to expand land control.</p>
+          
+          <h4>Battle Mechanics</h4>
+          <p>Battles involve strategic unit deployment, leader ability usage, spell casting, and wave management. Success is determined by destroying enough buildings (at least 50%) within the time limit (3 minutes).</p>
+          
+          <div class="character-gallery">
+            <div class="character-card">
+              <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Legendary%20Archer.jpeg?raw=true" alt="Legendary Archer" class="character-image">
+              <div class="character-info">
+                <h5>Legendary Archer</h5>
+                <p>Long-range Specialist</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Immortal%20Guardian.jpeg?raw=true" alt="Immortal Guardian" class="character-image">
+              <div class="character-info">
+                <h5>Immortal Guardian</h5>
+                <p>Defensive Powerhouse</p>
+              </div>
+            </div>
+          </div>
+          
+          <h4>Defense System</h4>
+          <p>Players can design their base layout, strategically place defensive buildings, set trap placements, and use defensive buffs from leaders. Successful defense yields rewards and protects resources.</p>
+          
+          <h4>Tribal Wars</h4>
+          <p>Organized wars between tribes or alliances follow a preparation period (24-48 hours) and a battle phase (24-48 hours) with members having limited attacks. Victory is determined by total stars earned, with rewards distributed among participants.</p>
+        </div>
+        
+        <!-- Game Story Section -->
+        <div class="doc-section" id="doc-story">
+          <h3>The Epic Tale of CryptoClans</h3>
+          
+          <h4>The Conflict of Light and Shadow</h4>
+          <div class="story-section">
+            <p class="story-paragraph">In an age long forgotten, when the boundary between the mortal realm and the realm of legends was thin, a great cataclysm shook the world. The heavens tore open, and from this celestial wound fell shards of an ancient power — glowing crystals of extraordinary might that the ancients called "Farr" (Divine Glory). In modern times, these crystals are known as "POL."</p>
+            <p class="story-paragraph">These POL crystals, infused with the essence of the stars themselves, possess the power to transform the land, grant extraordinary abilities to their wielders, and even bind the fabric of reality itself. Where the crystals touched the earth, life flourished, magic awakened, and civilizations rose from the ashes of the old world.</p>
+            <div class="story-divider"></div>
+            <p class="story-paragraph">Two great forces emerged to vie for control of these powerful artifacts. In the lands of light to the west, followers of the path of wisdom and order sought to use the crystals to restore knowledge and rebuild civilization. In the shadow lands to the east, those who followed the path of power and chaos desired to harness the crystals for dominion and conquest.</p>
+          </div>
+          
+          <h4>The Birth of Tribes</h4>
+          <div class="story-section">
+            <p class="story-paragraph">From this conflict arose independent tribes, each led by noble kings and queens with their own visions for the future of the world. Some pledged allegiance to the light, others to shadow, while many chose their own path between these extremes.</p>
+            <p class="story-paragraph">The young warrior <span class="story-highlight">Kian</span>, descended from an ancient line of heroes, discovered a POL crystal that had been passed down through generations of his family. In his dreams, he was visited by a radiant figure who spoke of a destiny to restore balance to a fractured world. Guided by this vision, Kian established his own tribe in a small valley protected by twin mountains.</p>
+            <p class="story-paragraph">At first, his domain consisted of only a few wooden shelters and a small gold mine, but his ambitions reached far beyond these humble beginnings.</p>
+          </div>
+          
+          <div class="character-gallery">
+            <div class="character-card">
+              <img src="https://github.com/Mehrdadgame/GoodVillain/blob/main/Winged%20Knight.jpeg?raw=true" alt="Kian" class="character-image">
+              <div class="character-info">
+                <h5>Kian</h5>
+                <p>Founder of the First Tribe</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Azura" alt="Azura" class="character-image">
+              <div class="character-info">
+                <h5>Azura</h5>
+                <p>Shadow Realm Leader</p>
+              </div>
+            </div>
+            <div class="character-card">
+              <img src="https://via.placeholder.com/300x200.png?text=Simorgh" alt="Simorgh" class="character-image">
+              <div class="character-info">
+                <h5>Simorgh</h5>
+                <p>Guardian of Balance</p>
+              </div>
+            </div>
+          </div>
+          
+          <h4>The Rise of Shadow</h4>
+          <div class="story-section">
+            <p class="story-paragraph">On the eastern horizon, a powerful tribe called "Shadowrealm" led by the cunning <span class="story-highlight">Azura</span>, watched Kian's tribe's success with envy. Drawing power from the shadow side of the POL crystals, Azura had mastered dark arts and created her own token — "ShadowCoin."</p>
+            <p class="story-paragraph">Azura, who considered herself a master strategist, had built a formidable force through intimidation and conquest rather than alliance and growth. She now planned to dominate more POL resources to fuel her dark powers.</p>
+            <p class="story-paragraph">On a moonlit night, scouts from Kian's tribe reported that Azura's forces had been seen at the eastern borders. Kian knew his great test had come. He summoned his tribal council and held the first tribal DAO vote to decide their war strategy.</p>
+            <p class="story-paragraph">The countdown to the great battle began. The fate of two tribes, two economies, and two tokens hung in the balance. Could the collective power of a tribal DAO overcome the centralized strategy of a cunning leader?</p>
+          </div>
+          
+          <h4>The Seven Trials</h4>
+          <div class="story-section">
+            <p class="story-paragraph">Before facing Azura directly, Kian would need to overcome seven great trials that would test his courage, wisdom, and leadership. Each trial would take him to a different part of the world, where he would face mythical beasts, solve ancient riddles, and prove his worthiness to wield the full power of the POL crystals.</p>
+            <p class="story-paragraph">The trials were set by the <span class="story-highlight">Guardian of Balance</span>, a mysterious entity who appeared as a magnificent bird with feathers of fire and gold, reminiscent of the legendary Simorgh. The Guardian sought to ensure that only those with noble intentions could harness the true power of POL.</p>
+            <p class="story-paragraph">As Kian embarked on his journey through the seven trials, other tribe leaders also sought to prove themselves worthy. Some would become allies, others rivals, and a few would fall to the temptations of shadow.</p>
+            <p class="story-paragraph">With each trial completed, Kian's tribe would gain new powers, technologies, and resources. The warriors of his tribe would grow stronger, their buildings more resilient, and their magic more potent.</p>
+            <p class="story-paragraph">Meanwhile, Azura pursued her own path to power, seeking shortcuts and forbidden knowledge that promised great power at terrible costs. Her shadow forces grew, fueled by corrupted POL crystals that spread darkness wherever they were used.</p>
+            <p class="story-paragraph">The stage was set for an epic conflict between light and shadow, order and chaos, cooperation and domination. This was just the beginning of the CryptoClans saga...</p>
+          </div>
+        </div>
+        
+        <!-- Roadmap Section -->
+        <div class="doc-section" id="doc-roadmap">
+          <h3>Development Roadmap</h3>
+          <p>Our detailed development plan for CryptoClans:</p>
+          
+          <h4>Short-term (3-6 months)</h4>
+          <ul>
+            <li><strong>Phase 1:</strong> Initial launch with basic features, tribe system up to level 10, basic NFTs, and core battle system</li>
+            <li><strong>Phase 2:</strong> Introduction of tribe tokens, internal NFT marketplace, dynamic reward system, and weekly/monthly events</li>
+          </ul>
+          
+          <h4>Mid-term (6-12 months)</h4>
+          <ul>
+            <li><strong>Phase 3:</strong> Tribal alliance system, alliance wars, super tokens, shared territory system</li>
+            <li><strong>Phase 4:</strong> Increase tribe level cap to 15, legendary territories, NFT breeding system, deeper tribe storylines</li>
+          </ul>
+          
+          <h4>Long-term (12+ months)</h4>
+          <ul>
+            <li><strong>Phase 5:</strong> Integration with other blockchain projects, cross-platform events, external use of tribe tokens, API for third-party developers</li>
+            <li><strong>Phase 6:</strong> Increase tribe level cap to 20, dynamic world system, global tournaments with major prizes, long-term economic sustainability plan</li>
+          </ul>
         </div>
       </div>
-    </section>
-
-    <!-- Team Section -->
+    </div>
+  </div>
+</section>
     <section class="team" id="team">
       <div class="container">
         <div class="section-header">
@@ -1654,7 +1660,7 @@
         </div>
         <div class="team-grid">
           <div class="team-card">
-            <div class="team-img" style="background-color: rgba(130, 71, 229, 0.2);"></div>
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGj6_17KsuSJA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1685198541186?e=1749081600&v=beta&t=duxpP-XraIoqMApTuMio8itHFg-l3tEGoQ50j8AkyjA" alt="Mehrdad Moradi" class="team-img">
             <div class="team-info">
               <h3>Mehrdad Moradi</h3>
               <p>Game Designer</p>
@@ -1668,7 +1674,7 @@
             </div>
           </div>
           <div class="team-card">
-            <div class="team-img" style="background-color: rgba(130, 71, 229, 0.2);"></div>
+            <img src="https://via.placeholder.com/300x280.png?text=Alex+Johnson" alt="Alex Johnson" class="team-img">
             <div class="team-info">
               <h3>Alex Johnson</h3>
               <p>Lead Developer</p>
@@ -1682,7 +1688,7 @@
             </div>
           </div>
           <div class="team-card">
-            <div class="team-img" style="background-color: rgba(130, 71, 229, 0.2);"></div>
+            <img src="https://via.placeholder.com/300x280.png?text=Sarah+Chen" alt="Sarah Chen" class="team-img">
             <div class="team-info">
               <h3>Sarah Chen</h3>
               <p>Blockchain Architect</p>
@@ -1696,7 +1702,7 @@
             </div>
           </div>
           <div class="team-card">
-            <div class="team-img" style="background-color: rgba(130, 71, 229, 0.2);"></div>
+            <img src="https://via.placeholder.com/300x280.png?text=David+Kim" alt="David Kim" class="team-img">
             <div class="team-info">
               <h3>David Kim</h3>
               <p>Art Director</p>
@@ -1813,7 +1819,8 @@
 
   <script>
     // Wait for document to be fully loaded
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() 
+    {
       // Mobile Menu Functionality
       const mobileMenuBtn = document.getElementById('mobileMenuBtn');
       const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -1932,132 +1939,189 @@
         });
       }
       
+      // Setup Character Images to fit their containers properly
+      setupCharacterImages();
+      
       // Setup Particles Animation
       setupParticles();
     });
     
-    // Particles Animation
-    function setupParticles() {
-  const particlesContainer = document.getElementById('particlesContainer');
-  if (!particlesContainer) return; // Safety check
-  
-  // Clear any existing particles
-  particlesContainer.innerHTML = '';
-  
-  // Configuration
-  const config = {
-    arrowCount: 15,
-    rockCount: 7,
-    minSpeed: 15000, // milliseconds to cross screen
-    maxSpeed: 25000  // milliseconds to cross screen
-  };
-  
-  // Create all particles
-  function createAllParticles() {
-    // Create arrows
-    for (let i = 0; i < config.arrowCount; i++) {
-      createParticle('arrow');
-    }
-    
-    // Create rocks
-    for (let i = 0; i < config.rockCount; i++) {
-      createParticle('rock');
-    }
-  }
-  
-  // Create a single particle
-  function createParticle(type) {
-    const particle = document.createElement('div');
-    particle.className = type;
-    
-    // Random vertical position
-    const verticalPos = Math.random() * window.innerHeight;
-    particle.style.top = `${verticalPos}px`;
-    
-    // Start offscreen to the left
-    particle.style.left = `-50px`;
-    
-    // Set initial opacity
-    particle.style.opacity = '0';
-    
-    // Apply initial rotation for arrows
-    if (type === 'arrow') {
-      const angle = (Math.random() * 20) - 10; // Random angle between -10 and 10 degrees
-      particle.style.transform = `rotate(${angle}deg)`;
-    }
-    
-    // Add to DOM
-    particlesContainer.appendChild(particle);
-    
-    // Start animation
-    animateParticle(particle, type);
-  }
-  
-  // Animate a particle across the screen
-  function animateParticle(particle, type) {
-    // Get screen width for full travel distance
-    const screenWidth = window.innerWidth + 100;
-    
-    // Random speed
-    const duration = Math.random() * (config.maxSpeed - config.minSpeed) + config.minSpeed;
-    
-    // Create animation
-    const animation = particle.animate([
-      { 
-        left: '-50px', 
-        opacity: 0 
-      },
-      { 
-        left: '10%', 
-        opacity: 0.7,
-        offset: 0.1 
-      },
-      { 
-        left: '90%', 
-        opacity: 0.7,
-        offset: 0.9 
-      },
-      { 
-        left: `${screenWidth}px`, 
-        opacity: 0 
-      }
-    ], {
-      duration: duration,
-      easing: 'linear',
-      fill: 'forwards'
-    });
-    
-    // Add rotation for rocks
-    if (type === 'rock') {
-      particle.animate([
-        { transform: 'rotate(0deg)' },
-        { transform: 'rotate(720deg)' }
-      ], {
-        duration: duration,
-        easing: 'linear',
-        fill: 'forwards'
+    // Character Images Setup
+    function setupCharacterImages() {
+      const characterImages = document.querySelectorAll('.character-image');
+      
+      characterImages.forEach(img => {
+        // Handle image load event to ensure proper sizing
+        img.addEventListener('load', function() {
+          // Make sure the image is always filling its container
+          this.style.objectFit = 'cover';
+          this.style.width = '100%';
+          this.style.height = '100%';
+          
+          // Apply a smooth transition for any size changes
+          this.style.transition = 'transform 0.3s ease';
+          
+          // Get the parent card
+          const card = this.closest('.character-card');
+          if (card) {
+            // Apply hover effect to zoom in slightly on the image
+            card.addEventListener('mouseenter', function() {
+              img.style.transform = 'scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+              img.style.transform = 'scale(1)';
+            });
+          }
+        });
+        
+        // For images that are already loaded
+        if (img.complete) {
+          img.dispatchEvent(new Event('load'));
+        }
+        
+        // Fallback for image errors
+        img.addEventListener('error', function() {
+          // If image fails to load, apply a background color and show alt text
+          this.style.backgroundColor = 'rgba(130, 71, 229, 0.2)';
+          this.style.display = 'flex';
+          this.style.alignItems = 'center';
+          this.style.justifyContent = 'center';
+          
+          // Create text element with alt text
+          const altText = document.createElement('span');
+          altText.textContent = this.alt || 'Character Image';
+          altText.style.color = '#fff';
+          altText.style.padding = '10px';
+          altText.style.textAlign = 'center';
+          
+          // Replace the image with the text
+          this.parentNode.replaceChild(altText, this);
+        });
       });
     }
     
-    // When animation completes, create a new particle
-    animation.onfinish = () => {
-      if (particle.parentNode) {
-        particle.parentNode.removeChild(particle);
+    // Particles Animation
+    function setupParticles() {
+      const particlesContainer = document.getElementById('particlesContainer');
+      if (!particlesContainer) return; // Safety check
+      
+      // Clear any existing particles
+      particlesContainer.innerHTML = '';
+      
+      // Configuration
+      const config = {
+        arrowCount: 15,
+        rockCount: 7,
+        minSpeed: 15000, // milliseconds to cross screen
+        maxSpeed: 25000  // milliseconds to cross screen
+      };
+      
+      // Create all particles
+      function createAllParticles() {
+        // Create arrows
+        for (let i = 0; i < config.arrowCount; i++) {
+          createParticle('arrow');
+        }
+        
+        // Create rocks
+        for (let i = 0; i < config.rockCount; i++) {
+          createParticle('rock');
+        }
       }
-      createParticle(type);
-    };
-  }
-  
-  // Start creating particles
-  createAllParticles();
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', setupParticles);
-
-// Reinitialize on window resize for better responsiveness
-window.addEventListener('resize', setupParticles);
-
-  </script>
+      
+      // Create a single particle
+      function createParticle(type) {
+        const particle = document.createElement('div');
+        particle.className = type;
+        
+        // Random vertical position
+        const verticalPos = Math.random() * window.innerHeight;
+        particle.style.top = `${verticalPos}px`;
+        
+        // Start offscreen to the left
+        particle.style.left = `-50px`;
+        
+        // Set initial opacity
+        particle.style.opacity = '0';
+        
+        // Apply initial rotation for arrows
+        if (type === 'arrow') {
+          const angle = (Math.random() * 20) - 10; // Random angle between -10 and 10 degrees
+          particle.style.transform = `rotate(${angle}deg)`;
+        }
+        
+        // Add to DOM
+        particlesContainer.appendChild(particle);
+        
+        // Start animation
+        animateParticle(particle, type);
+      }
+      
+      // Animate a particle across the screen
+      function animateParticle(particle, type) {
+        // Get screen width for full travel distance
+        const screenWidth = window.innerWidth + 100;
+        
+        // Random speed
+        const duration = Math.random() * (config.maxSpeed - config.minSpeed) + config.minSpeed;
+        
+        // Create animation
+        const animation = particle.animate([
+          { 
+            left: '-50px', 
+            opacity: 0 
+          },
+          { 
+            left: '10%', 
+            opacity: 0.7,
+            offset: 0.1 
+          },
+          { 
+            left: '90%', 
+            opacity: 0.7,
+            offset: 0.9 
+          },
+          { 
+            left: `${screenWidth}px`, 
+            opacity: 0 
+          }
+        ], {
+          duration: duration,
+          easing: 'linear',
+          fill: 'forwards'
+        });
+        
+        // Add rotation for rocks
+        if (type === 'rock') {
+          particle.animate([
+            { transform: 'rotate(0deg)' },
+            { transform: 'rotate(720deg)' }
+          ], {
+            duration: duration,
+            easing: 'linear',
+            fill: 'forwards'
+          });
+        }
+        
+        // When animation completes, create a new particle
+        animation.onfinish = () => {
+          if (particle.parentNode) {
+            particle.parentNode.removeChild(particle);
+          }
+          createParticle(type);
+        };
+      }
+      
+      // Start creating particles
+      createAllParticles();
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', setupParticles);
+    
+    // Reinitialize on window resize for better responsiveness
+    window.addEventListener('resize', setupParticles);
+    </script>
 </body>
 </html>
