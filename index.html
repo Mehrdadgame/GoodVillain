@@ -1269,12 +1269,67 @@
     <h2>Build Your Clan <span>Rule The Blockchain</span></h2>
     <p>CryptoClans is a strategic blockchain game where you build your tribe, mint your own tokens, and conquer the digital realm using NFT warriors and blockchain economy.</p>
     <div class="hero-buttons">
-      <a href="#features" class="btn btn-primary">Start Playing</a>
+      <a href="#features" class="btn btn-primary">Game Design Document</a>
       <a href="#documentation" class="btn btn-secondary">Learn More</a>
     </div>
   </div>
-</section>
 
+</section>
+<!-- New Section to Add After Features Section -->
+<section class="polygon-benefits" id="polygon-benefits">
+  <div class="container">
+    <div class="section-header">
+      <h2>Polygon: Our Blockchain Foundation</h2>
+      <p>Leveraging the Power of Polygon's Advanced Blockchain Ecosystem</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 13.59L12 14.41 7 11.59V8.41l5 3.12 5-3.12v3.18z"/>
+          </svg>
+        </div>
+        <h3>Low Transaction Costs</h3>
+        <p>Polygon offers incredibly low gas fees, making microtransactions and NFT minting affordable for our players.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+          </svg>
+        </div>
+        <h3>High-Speed Transactions</h3>
+        <p>Polygon's Proof-of-Stake mechanism enables fast and efficient blockchain transactions, crucial for our game's real-time economy.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+            <path d="M21 7.28V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-2.28c.59-.35 1-.98 1-1.72V9c0-.74-.41-1.37-1-1.72zM20 9v6h-7V9h7zM5 19V5h14v2h-6c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h6v2H5z"/>
+          </svg>
+        </div>
+        <h3>Native Token Support</h3>
+        <p>Create and manage custom meme coins and NFTs seamlessly using Polygon's robust token standards (ERC-20, ERC-721).</p>
+      </div>
+    </div>
+    
+    <div class="polygon-details">
+      <div class="story-section">
+        <h4>CryptoClans on Polygon: Our Technical Advantages</h4>
+        <p class="story-paragraph">By choosing Polygon, CryptoClans gains access to a scalable, eco-friendly blockchain ecosystem that supports our vision of a dynamic, player-driven economy.</p>
+        
+        <div class="polygon-tech-list">
+          <h5>Key Technical Integrations:</h5>
+          <ul>
+            <li><strong>NFT Marketplace:</strong> Leveraging Polygon's low-cost NFT minting and trading</li>
+            <li><strong>Memecoin Creation:</strong> Easy token generation with minimal overhead</li>
+            <li><strong>Cross-Chain Compatibility:</strong> Seamless interaction with Ethereum and other blockchains</li>
+            <li><strong>Layer 2 Scaling:</strong> Enhanced performance and reduced environmental impact</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- Features Section -->
     <section class="features" id="features">
       <div class="container">
@@ -2118,10 +2173,15 @@
     }
     
     // Initialize on page load
-    document.addEventListener('DOMContentLoaded', setupParticles);
+   // document.addEventListener('DOMContentLoaded', setupParticles);
     
     // Reinitialize on window resize for better responsiveness
     window.addEventListener('resize', setupParticles);
+    document.querySelectorAll('.btn-primary, .nav-button').forEach(btn => {
+    btn.href = 'https://github.com/Mehrdadgame/GoodVillain/blob/main/GameDesignDocument.pdf';
+    btn.target = '_blank';
+    btn.textContent = 'Game Design Document';
+  });
     </script>
 </body>
 </html>
