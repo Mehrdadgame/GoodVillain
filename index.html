@@ -23,15 +23,30 @@
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
+    body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 8, 32, 0.05); /* تنظیم میزان تیرگی با تغییر عدد 0.8 */
+  z-index: -1;
+}
     
     body {
-      background-color: var(--background);
-      color: var(--light);
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 400;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+  background-color: var(--background);
+  background-image: url('https://github.com/Mehrdadgame/GoodVillain/blob/main/a_mystical_fantasy_landscape_in_a_3x4_aspect_ratio_inspired_by_the_conflict_between_light_and_shado_eo0yk4sru3isqyb660m8_3.png?raw=true');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--light);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
     
     h1, h2, h3, h4, h5 {
       font-family: 'Exo 2', sans-serif;
@@ -146,7 +161,9 @@
     transform: translateX(calc(100vw + 100px)) translateY(100px) rotate(720deg);
     opacity: 0;
   }
+  
 }
+
 /* Warrior Character Animation */
 .warrior-container {
   position: absolute;
